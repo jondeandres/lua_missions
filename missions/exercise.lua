@@ -9,6 +9,17 @@
 
 -- INSERT YOUR CODE HERE
 
+local index = getmetatable("").__index
+
+index.starts_with = function(str, substr)
+   return string.find(str, substr) == 1
+end
+
+index.ends_with = function(str, substr)
+   local start_pos, end_pos = string.find(str, substr .. '$')
+   return end_pos == #str
+end
+
 
 -- END OF CODE INSERT
 
